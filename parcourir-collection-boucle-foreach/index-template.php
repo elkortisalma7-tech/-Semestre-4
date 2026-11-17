@@ -1,45 +1,69 @@
-
 <!DOCTYPE html>
-<html lang="fr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mon Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href=" style.css">
 </head>
-
 <body>
+<section class="filtre-categories">
 
-    <h1>Bienvenue sur mon Blog</h1>
+<h2>Explorer par thème</h2>
 
-    <div class="grille-articles">
+<div class="liste-filtres">
 
-        <?php foreach ($articles as $article): ?>
+    <a href="index.php" class="pilule-filtre actif">
+        Tous les articles
+    </a>
 
-            <div class="carte-article">
+    <?php foreach ($categories as $cat): ?>
 
-                <h2>
-                    <?= htmlspecialchars($article['titre'], ENT_QUOTES, 'UTF-8') ?>
-                </h2>
+        <a href="categorie.php?id=<?= $cat['id'] ?>" class="pilule-filtre">
+            <?= htmlspecialchars($cat['libelle']) ?>
+        </a>
 
-                <p>
-                <p>
-    <?= htmlspecialchars(substr($article['contenu'], 0, 100), ENT_QUOTES, 'UTF-8') ?>...
-</p>
-                </p>
+    <?php endforeach; ?>
 
-                <span>
-                    <?= htmlspecialchars($article['categorie_libelle'], ENT_QUOTES, 'UTF-8') ?>
-                </span>
+</div>
 
-                <p>
-                    <?= date('d M Y', strtotime($article['date_creation'])) ?>
-                </p>
+</section>
+<div class="grille-articles"> 
+<?php foreach ($articles as $article):?>
+    <div class=" carte-article">
+    <a href="article.php?id=<?= $article['id'] ?>" class="carte-image">
 
-            </div>
+    <img
+        src="<?= htmlspecialchars($article['image']) ?>"
+        alt="<?= htmlspecialchars($article['titre']) ?>"
+    >
 
-        <?php endforeach; ?>
+</a>
 
+<span class="etiquette-categorie <?php if ($article['categorie_couleur'] == 'bleu'): ?>bleu<?php else: ?>rose<?php endif; ?>">
+    <?= htmlspecialchars($article['categorie_libelle']) ?>
+</span>
+<div class=" carte-contenu"> 
+<?php if ($article['id'] == 1): ?>
+    <small class="badge-special">⭐ À la une</small>
+<?php endif; ?>
+
+<h3>
+    <a href="article.php?id=<?= $article['id'] ?>">
+        <?= htmlspecialchars($article['titre']) ?>
+    </a>
+</h3>
+
+<div class=' carte-meta '>
+    <span> <?= date('d M Y',strtotime($article['date_creation'])) ?>
+    </span>
+    <span> 5min .</span>
+</div>
+</div>
     </div>
-
+    <?php endforeach; ?>
+</div>
 </body>
 </html>
+
+

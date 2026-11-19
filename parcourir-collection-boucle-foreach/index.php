@@ -1,30 +1,8 @@
+<?php 
+ $nom = "salma el korti ";
+ $formations="Appronante en devleppement web ";
+ $competences=["HTML","<br>" ,"CSS","<br>","PHP", "<br>","javascript"];
+ $projets=["Mon blog", "<br>" ,"Mon portofolio" ] ;
 
-<?php
-
-$articles = [
-    [
-        'id' => 1,
-        'titre' => 'Comment structurer ses composants UI ?',
-        'contenu' => 'Découvrez les concepts fondamentaux de la méthode Atomic Design...',
-        'image' => 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800',
-        'date_creation' => '2026-02-14',
-        'categorie_libelle' => 'Développement',
-        'categorie_couleur' => 'bleu'
-    ],
-
-    [
-        'id' => 2,
-        'titre' => 'Maîtriser les micro-interactions UX',
-        'contenu' => 'Une interface belle n\'est pas suffisante...',
-        'image' => 'https://images.unsplash.com/photo-1559028012-481c04fa702d?w=800',
-        'date_creation' => '2026-02-10',
-        'categorie_libelle' => 'Design UI/UX',
-        'categorie_couleur' => 'rose'
-    ]
-];
-
-$categories = [
-    ['id' => 1, 'libelle' => 'Développement'],
-    ['id' => 2, 'libelle' => 'Design UI/UX']
-];
-require 'index-template.php';
+ require "index-template.php";
+?>

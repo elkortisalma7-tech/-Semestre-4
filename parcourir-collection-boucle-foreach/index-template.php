@@ -3,67 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href=" style.css">
+    <title>Mon portofolio </title>
 </head>
 <body>
-<section class="filtre-categories">
+    <header>
+        <h2> <?= $nom ?></h2>
+        <p> <?= $formations ?></p>
+    </header>
+<nav>
+<a href="#acceuil"> Acceuil</a>
+<a href="#blog"> Mon blog</a>
+<a href="#competences"> Competence</a>
+<a href="#projets"> Projet</a>
+<a href="#contact"> Contact</a>
 
-<h2>Explorer par thème</h2>
+</nav>
 
-<div class="liste-filtres">
+<main>
 
-    <a href="index.php" class="pilule-filtre actif">
-        Tous les articles
-    </a>
-
-    <?php foreach ($categories as $cat): ?>
-
-        <a href="categorie.php?id=<?= $cat['id'] ?>" class="pilule-filtre">
-            <?= htmlspecialchars($cat['libelle']) ?>
-        </a>
-
-    <?php endforeach; ?>
-
-</div>
-
+<section id="acceuile">
+<h2><strong>bienvennue sur mon portofolio .</strong> .</h2>
+<p> je suis Apprenante en develeppement web .</p>
 </section>
-<div class="grille-articles"> 
-<?php foreach ($articles as $article):?>
-    <div class=" carte-article">
-    <a href="article.php?id=<?= $article['id'] ?>" class="carte-image">
 
-    <img
-        src="<?= htmlspecialchars($article['image']) ?>"
-        alt="<?= htmlspecialchars($article['titre']) ?>"
-    >
+<section id="blog">
+<h2> Mon blog</h2>
+<img src="blog.png" alt=" mon blog">
+<p> developeur ,Apprendre en partager .</p>
+</section>
 
-</a>
+<section id="competences">
+ <h2> Mes competences .</h2>
+ <?php foreach ($competences as $competence): ?>
+    <?=  $competence ?>
+    <?php endforeach ;?>
+</section>
 
-<span class="etiquette-categorie <?php if ($article['categorie_couleur'] == 'bleu'): ?>bleu<?php else: ?>rose<?php endif; ?>">
-    <?= htmlspecialchars($article['categorie_libelle']) ?>
-</span>
-<div class=" carte-contenu"> 
-<?php if ($article['id'] == 1): ?>
-    <small class="badge-special">⭐ À la une</small>
-<?php endif; ?>
-
-<h3>
-    <a href="article.php?id=<?= $article['id'] ?>">
-        <?= htmlspecialchars($article['titre']) ?>
-    </a>
-</h3>
-
-<div class=' carte-meta '>
-    <span> <?= date('d M Y',strtotime($article['date_creation'])) ?>
-    </span>
-    <span> 5min .</span>
-</div>
-</div>
-    </div>
-    <?php endforeach; ?>
-</div>
+<section id="projets">
+ <h2> Mon projets .</h2>
+ <?php foreach ($projets as $projet): ?>
+    <?=  $projet ?>
+    <?php endforeach ;?>
+</section>
+</main>
+<footer id="contact">
+<h2> Contact</h2>
+<p> contactez-moi.</p>
+<p> <strong> SALMA EL KORTI </strong></p>
+</footer>
 </body>
 </html>
-
-
